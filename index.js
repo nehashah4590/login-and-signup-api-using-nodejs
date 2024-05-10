@@ -1,7 +1,50 @@
 const express = require('express');
 const app = express();
+const mongoose = require("mongoose");
 const PORT = 8000;
 
+const uri = "mongodb+srv://ernehashah822:neha123@cluster0.uhcmytd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+
+
+// connecting to mongoDB
+mongoose.connect(uri,{dbName: "signupandlogin"}).then(() => {
+  console.log("Connected to cluster 0 db");
+}).catch((e)=>
+{
+  console.log(e);
+})
+
+//Schema
+const registerUser = new mongoose.Schema({
+  name:{
+    type:String,
+    required:true,
+  },
+  username:{
+    type:String,
+    required:true,
+    unique:true,
+  },
+  email:{
+    type:String,
+    required:true,
+    unique:true,
+  },
+  number:{
+    type:String,
+    required:true,
+    unique:true,
+  },
+  password:{
+    type:String,
+    required:true,
+  },
+},{timestamps:true});
+
+const User = mongoose.model("user", registerUser);
+
+
+      
 app.use(express.urlencoded({extended:false}));
 
 app.get('/', (req, res) =>{
@@ -55,19 +98,41 @@ app.get('/login', (req, res) =>{
 res.send(html);
 })
 
-app.post("/api/create_users", (req, res)=>{
+app.post("/api/create_users", async(req, res)=>{
   const body = req.body;
-  console.log(body);
-  return res.json("status:success")
+  if(!body || !body.name || !body.username || !body.email|| !body.number || !body.password){
+    return  res.status(400).json({msg : "All fields are required"});
+  }
+
+  const result = await User.create({
+    name: body.name,
+    username: body.username,
+    email: body.email,
+    number: body.number,
+    password: body.password,
+  })
+  console.log(result);
+  return res.status(201).json({msg:"success"})
 });
 
-app.post("/api/authenticate_users", (req, res)=>{
-  const body = req.body;
-  console.log(body);
-  const html = `
-  <h1>Login successfull</h1>
-  `
-  return res.send(html);
+app.post("/api/authenticate_users", async(req, res)=>{
+  const { username, password } = req.body;
+
+  if (!username || !password) {
+      return res.status(400).json({ msg: "Username and password are required" });
+  }
+
+  try {
+      const user = await User.findOne({ username , password });
+
+      if (!user) {
+          return res.status(401).json({ msg: "Invalid username or password" });
+      }
+      return res.status(200).json({ msg: "Login successful" });
+  } catch (error) {
+      console.error("Login error:", error);
+      return res.status(500).json({ msg: "Internal server error" });
+  }
 });
 
 app.listen(PORT, ()=> console.log(`Server started at port ${PORT}`));
