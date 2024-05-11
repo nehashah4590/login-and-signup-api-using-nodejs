@@ -6,6 +6,8 @@
     <title>Signup</title>
 </head>
 <body>
+    <% if(locals.msg) { %>
+    <p><%= msg %></p> <% } %>
     <form action="/api/create_users" method="post">
         <label for="name">Name:</label><br>
         <input type="text" id="name" name="name" required><br>

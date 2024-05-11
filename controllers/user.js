@@ -1,20 +1,21 @@
 const User = require("../models/user");
+const { setUser, getUser,} = require("../service/auth");
  
 async function handleCreateNewUser(req, res) {
-    const body = req.body;
-    if(!body || !body.name || !body.username || !body.email|| !body.number || !body.password){
+    const {name, username, email, number, password} = req.body;
+    if( !name || !username || !email|| !number || !password){
       return  res.status(400).json({msg : "All fields are required"});
     }
   
     const result = await User.create({
-      name: body.name,
-      username: body.username,
-      email: body.email,
-      number: body.number,
-      password: body.password,
+       name,
+      username,
+      email,
+      number,
+      password,
     })
-    console.log(result);
-    return res.status(201).json({msg:"success"})
+    // return res.status(201).json({msg:"success"})
+    return res.render('signup',{msg:"signup success"} );
 }
 
 async function handleAuthenticateUser(req, res) {
@@ -30,7 +31,10 @@ async function handleAuthenticateUser(req, res) {
         if (!user) {
             return res.status(401).json({ msg: "Invalid username or password" });
         }
-        return res.status(200).json({ msg: "Login successful" });
+        // return res.status(200).json({ msg: "Login successful" });
+        const token = setUser(user);
+        res.cookie("uid", token);
+        return res.render('login', {msg:"Login success"});
     } catch (error) {
         console.error("Login error:", error);
         return res.status(500).json({ msg: "Internal server error" });

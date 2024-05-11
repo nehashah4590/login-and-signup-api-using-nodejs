@@ -76,3 +76,51 @@
 1715407371388:::1 GET: /signup
 
 1715407372905:::1 GET: /login
+
+1715407449629:::1 GET: /
+
+1715407450233:::1 GET: /signup
+
+1715407452056:::1 GET: /login
+
+1715407458612:::1 POST: /api/authenticate_users
+
+1715407902754:::1 GET: /
+
+1715407905608:::1 GET: /signup
+
+1715407926665:::1 POST: /api/create_users
+
+1715407940770:::1 GET: /login
+
+1715407978044:::1 POST: /api/authenticate_users
+
+1715408156523:::1 POST: /api/authenticate_users
+
+1715408186644:::1 POST: /api/authenticate_users
+
+1715409127325:::1 GET: /signup
+
+1715409150795:::1 POST: /api/create_users
+
+1715409192327:::1 POST: /api/create_users
+
+1715410612984:::1 POST: /api/create_users
+
+1715411429892:::1 GET: /login
+
+1715411432415:::1 GET: /signup
+
+1715411834539:::1 GET: /login
+
+1715411858128:::1 POST: /api/authenticate_users
+
+1715424371000:::1 GET: /signup
+
+1715424392746:::1 GET: /signup
+
+1715424473420:::1 POST: /api/authenticate_user
+
+1715424516712:::1 POST: /authenticate_users
+
+1715424543620:::1 POST: /api/authenticate_users

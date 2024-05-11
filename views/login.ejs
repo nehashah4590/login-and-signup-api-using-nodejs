@@ -6,6 +6,8 @@
     <title>Login Page</title>
 </head>
 <body>
+    <% if(locals.msg) { %>
+        <p><%= msg %></p> <% } %> 
     <form action="/api/authenticate_users" method="post">
   
         <label for="username">Username:</label><br>
