@@ -1,0 +1,78 @@
+
+1715403669522:::1 GET: /
+
+1715403671770:::1 GET: /
+
+1715403674853:::1 GET: /login
+
+1715403676710:::1 GET: /login
+
+1715403681943:::1 GET: /signup
+
+1715403683862:::1 GET: /signup
+
+1715403690236:::1 GET: /api/authenticate_users
+
+1715403691785:::1 GET: /api/authenticate_users
+
+1715403695901:::1 GET: /api/create_users
+
+1715403740929:::1 GET: /
+
+1715403800009:::1 GET: /
+
+1715403867743:::1 GET: /
+
+1715403970971:::1 GET: /
+
+1715403971273:::1 GET: /favicon.ico
+
+1715403973062:::1 GET: /signup
+
+1715403975749:::1 GET: /login
+
+1715403984730:::1 POST: /api/authenticate_users
+
+1715403997226:::1 POST: /api/authenticate_users
+
+1715404001063:::1 GET: /signup
+
+1715404052947:::1 POST: /api/create_users
+
+1715404244019:::1 POST: /api/create_users
+
+1715404427285:::1 GET: /login
+
+1715404437168:::1 POST: /api/authenticate_users
+
+1715404548369:::1 GET: /signup
+
+1715404567328:::1 POST: /api/create_users
+
+1715404967338:::1 GET: /
+
+1715404969771:::1 GET: /signup
+
+1715404985948:::1 POST: /api/create_users
+
+1715404992452:::1 GET: /login
+
+1715405003384:::1 POST: /api/authenticate_users
+
+1715406667115:::1 GET: /
+
+1715406670606:::1 GET: /signup
+
+1715406811904:::1 GET: /
+
+1715406813337:::1 GET: /signup
+
+1715406815805:::1 GET: /login
+
+1715407367325:::1 GET: /login
+
+1715407370241:::1 GET: /signup
+
+1715407371388:::1 GET: /signup
+
+1715407372905:::1 GET: /login
